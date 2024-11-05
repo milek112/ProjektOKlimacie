@@ -11,3 +11,7 @@ podlanych konewek. Jak starczy czasu dodac na wejsciu na stone musisz podac
 nick ktory bedzie sie wyswietlal w tabeli baze danych gdzie bedzie podpieta
 liczba konewek. I bedzie tabela urztkownikow kto ma najwiecej 
 podlań.
+
+
+
+Trzeba się odnosić do poleceń z regulaminu więc trzeba dodac jakieś opisy krótkie lub podpowiedzi przy zadaniach, np. Przy grze w sortowanie śmieci, dla przykładu w rogu gierki niech się pokazuje tekst hover mówiący i tym jakie śmieci do jakich kolorów pojemnika mogą się dostać.
