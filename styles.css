@@ -31,27 +31,17 @@
     align-items: center;
     padding: 30px 50px;
     height: 15%;
-    /* background-color: pink; */
+    text-decoration: none;
 }
 
-nav h1{
+nav h1 {
     font-weight: 600;
-    position: relative;
-    margin-left: 40px;
     color: #093c24;
     font-size: 35px;
-}
-
-nav h1::before{
-    content: '';
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 50%;
-    left: -40px;
-    transform: translateY(-50%);
-    background:linear-gradient(90deg,rgb(21, 99, 234),rgb(235, 235, 255));
-}
+    margin: 0; /* Remove any default margin */
+    line-height: 1; /* Ensure it aligns well with the logo */
+    text-decoration: none;
+  }
 
 nav ul{
     display: flex;
@@ -99,6 +89,7 @@ ul li a:hover{
     margin-bottom: 20px;
     line-height: 60px;
     text-transform: uppercase;
+    position: relative;
 }
 
 .left h2{
@@ -177,3 +168,19 @@ opacity: 1;
     height: 85%;
     padding-left: 100px;
 }
+
+
+.logo-container {
+    display: inline-block;
+    align-items: center;
+    text-decoration: none;
+    color: #093c24; /* Matches the color of your h1 */
+  }
+  
+  .logo {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px; /* Adds space between logo and text */
+  }
+  
