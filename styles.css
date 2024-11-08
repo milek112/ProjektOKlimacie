@@ -1,74 +1,179 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins;
+}
+
+.container{
+    width: 100%;
+    height:100vh;
+    background:linear-gradient(90deg,#59b559,#467832);
+}
+
+.parent{
+    width:80%;
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-image: url('bg.jpg');
+    background-position: center;
+    background-size: cover;
+    color: #022d62;
+    box-shadow: 5px 5px 20px black;
+}
+
+.parent nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    height: 15%;
+    /* background-color: pink; */
+}
+
+nav h1{
+    font-weight: 600;
+    position: relative;
+    margin-left: 40px;
+    color: #093c24;
+    font-size: 35px;
+}
+
+nav h1::before{
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: -40px;
+    transform: translateY(-50%);
+    background:linear-gradient(90deg,rgb(21, 99, 234),rgb(235, 235, 255));
+}
+
+nav ul{
+    display: flex;
+    margin-right: 150px;
+}
+
+nav ul li{
+    list-style-type: none;
+}
+
+ul li a{
+    text-decoration: none;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+ul li a:hover{
+    color: red;
+}
+
+.parent .main_content{
+    display: flex;
+    height: 85%;
+}
+
+.main_content .left{
+    width: 45%;
+    height: 100%;
+    padding: 40px;
+}
+
+.left h3{
+    font-weight: 600;
+    font-size: 25px;
+    text-transform: uppercase;
+    margin-top: 40px;
+}
+
+.left h1{
+    font-size: 45px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 60px;
+    text-transform: uppercase;
+}
+
+.left h2{
+    text-decoration: underline;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.left p{
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.btn{
+    padding: 15px 40px;
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+}
+.btn::after{
+content: "";
+z-index: -1;
+position: absolute;
+width: 100%;
+height: 100%;
+background-color: #333;
+left: 0;
+top: 0;
+border-radius: 10px;
+}
 
 
 
-
-/*== VARIABLES CSS =*/
-:root {
-    --header-height: 3.5rem;
-
-    --first-color: hsl(72, 59%, 45%);
-    --first-color-alt: hsl(72, 75%, 38%);
-    --gradient-color: linear-gradient(180deg,
-    hsl(151, 61%, 21%),
-    Ohsl(151, 80%, 28%));
-    --first-color-dark: Ohsl(151, 52%, 17 %);
-    --first-color-darker: ☐ hsl(151, 52%, 12%);
-    --title-color: hsl(49, 96%, 91%);
-    --text-color: hsl(99, 20%, 65%);
-/*=== Font and typography ==*/
-/*.5rem = 8px | 1rem = 16px ... */
---body-font: "Montserrat", sans-serif;
---second-font: "Gwendolyn", cursive;
---biggest-font-size: 2rem;
---h1-font-size: 1.5rem;
---h2-font-size: 1.25rem;
---normal-font-size: .938rem;
---smaller-font-size: .75rem;
-/*= Font weight*/
---font-regular: 400;
---font-bold: 700;
-
-/*= Z index */
---z-tooltip: 10;
---z-fixed: 100;
-/*= Responsive typography =*/
-@media screen and (min-width: 1150px) {
-:root {
---biggest-font-size: 3rem;
---h1-font-size: 2.25rem;
---h2-font-size: 1.5rem;
---h3-font-size: 1.25rem;
---normal-font-size: 1ren;
---smaller-font-size: .813rem;
+.btn::before{
+content: "";
+background: linear-gradient(
+    45deg,
+#000000, rgb(64, 71, 64), #000000, #000000,
+#39533c, rgb(45, 53, 45), #000000, #474b46
+);
+position: absolute;
+top: -2px;
+left: -2px;
+background-size: 600%;
+z-index: -1;
+width: calc(100% + 4px);
+height: calc(100% + 4px);
+filter: blur(7px);
+animation: glowing 20s linear infinite;
+transition: opacity .3s ease-in-out;
+border-radius: 10px;
+opacity: 1;
 }
+@keyframes glowing{
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
 }
 
-* {
-box-sizing: border-box;
-padding: 0;
-margin: 0;
+
+
+.btn:hover::before{
+    opacity: 1;
 }
-body {
-font-family: var(--body-font);
-font-size: var(--normal-font-size);
-background: var(--gradient-color) no-repeat;
-color: var(--text-color);
+
+.btn:active{
+    color: #000;
+    font-weight: bold;
 }
-ul {
-list-style: none;
-}
-a {
-text-decoration: none;
-}
-img {
-display: block;
-max-width: 100%;
-height: auto;
-}
-.container {
-max-width: 1120px;
-margin-inline: 1.5rem;
-}
-.main {
-overflow: hidden;
+.main_content .right{
+    width:60%;
+    height: 85%;
+    padding-left: 100px;
 }
