@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Chatbox</title>
+    <style>
+     
+        .popup-overlay {
+            position: fixed;
+            top: 20px;
+            right: 600px;
+            width: 200px;
+            height: 200px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 999;
+        }
+
+       
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .chatbox {
+            flex: 1;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+            font-size: 12px;
+        }
+
+       
+        .chat-input {
+            display: flex;
+            padding: 5px 0;
+        }
+
+        .chat-input input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            font-size: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .chat-input button {
+            padding: 5px;
+            margin-left: 5px;
+            border: none;
+            font-size: 12px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="popup-overlay" id="popup">
+    <button class="close-btn" onclick="closePopup()">X</button>
+    <div class="chatbox" id="chatbox">
+  
+    </div>
+    <div class="chat-input">
+        <input type="text" id="messageInput" placeholder="Napisz wiadomość...">
+        <button onclick="sendMessage()">Wyślij</button>
+    </div>
+</div>
+
+<script>
+  
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
+
+  
+    function sendMessage() {
+        const messageInput = document.getElementById("messageInput");
+        const chatbox = document.getElementById("chatbox");
+
+        if (messageInput.value.trim() !== "") {
+       
+            const messageElement = document.createElement("div");
+            messageElement.textContent = messageInput.value;
+            messageElement.style.marginBottom = "5px";
+            messageElement.style.textAlign = "left";
+            chatbox.appendChild(messageElement);
+
+           
+            messageInput.value = "";
+
+           
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+    }
+</script>
+
+</body>
+</html>
