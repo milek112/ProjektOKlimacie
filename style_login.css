@@ -15,7 +15,7 @@ body {
 .container{
   width: 100%;
   height:100vh;
-  background: url('tlo_hp.png'); /*na później, trzeba znaleźć dobre zdjęcie*/
+  background-color: white; /*na później, trzeba znaleźć dobre zdjęcie*/
   background-size: cover;
   background-attachment: fixed;
   }
