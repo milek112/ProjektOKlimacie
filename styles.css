@@ -58,6 +58,7 @@ a{
   display: flex;
   padding: 10px;
   margin-right: 5px;
+
 }
 nav h1 {
   font-weight: 600;
@@ -84,6 +85,8 @@ ul li a{
   font-weight: 500;
   font-size: 18px;
   transition: 0.3s ease;
+  font-weight: bold;
+  color: #063414;
 }
 
 ul li a:hover{
@@ -178,7 +181,10 @@ opacity: 1;
   100% {background-position: 0 0;}
 }
 
-
+button:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease
+}
 
 .btn:hover::before{
   opacity: 1;

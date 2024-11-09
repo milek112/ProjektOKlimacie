@@ -19,6 +19,7 @@ body.fade-out {
 .container{
   width: 100%;
   height:100vh;
+  background: url('tlo_hp.png'); /*na później, trzeba znaleźć dobre zdjęcie*/
   background-size: cover;
   background-attachment: fixed;
   }
@@ -31,7 +32,7 @@ body.fade-out {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  background-image: url('bg2.jpg');
+  background-color: white;
   background-position: center;
   background-size: cover;
   color: #022d62;
@@ -55,6 +56,9 @@ nav{
 a{
   text-decoration: none;
   display: flex;
+  padding: 10px;
+  margin-right: 5px;
+
 }
 nav h1 {
   font-weight: 600;
@@ -81,6 +85,8 @@ ul li a{
   font-weight: 500;
   font-size: 18px;
   transition: 0.3s ease;
+  font-weight: bold;
+  color: #063414;
 }
 
 ul li a:hover{
@@ -98,93 +104,8 @@ ul li a:hover{
   padding: 40px;
 }
 
-.left h3{
-  font-weight: 600;
-  font-size: 25px;
-  text-transform: uppercase;
-  margin-top: 40px;
-}
-
-.left h1{
-  font-size: 45px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  line-height: 60px;
-  text-transform: uppercase;
-  position: relative;
-}
-
-.left h2{
-  text-decoration: underline;
-  margin: 10px 0;
-  font-weight: 500;
-}
-
-.left p{
-  font-size: 12px;
-  font-weight: 400;
-}
-
-.btn{
-  padding: 15px 40px;
-  border: none;
-  outline: none;
-  color: #fff;
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 12px;
-}
-.btn::after{
-content: "";
-z-index: -1;
-position: absolute;
-width: 100%;
-height: 100%;
-background-color: #333;
-left: 0;
-top: 0;
-border-radius: 10px;
-}
 
 
-
-.btn::before{
-content: "";
-background: linear-gradient(
-  45deg,
-#000000, rgb(64, 71, 64), #000000, #000000,
-#39533c, rgb(45, 53, 45), #000000, #474b46
-);
-position: absolute;
-top: -2px;
-left: -2px;
-background-size: 600%;
-z-index: -1;
-width: calc(100% + 4px);
-height: calc(100% + 4px);
-filter: blur(7px);
-animation: glowing 20s linear infinite;
-transition: opacity .3s ease-in-out;
-border-radius: 10px;
-opacity: 1;
-}
-@keyframes glowing{
-  0% {background-position: 0 0;}
-  50% {background-position: 400% 0;}
-  100% {background-position: 0 0;}
-}
-
-
-
-.btn:hover::before{
-  opacity: 1;
-}
-
-.btn:active{
-  color: #000;
-  font-weight: bold;
-}
 .main_content .right{
   width:60%;
   height: 85%;
@@ -236,9 +157,34 @@ opacity: 1;
 .parent {
   animation: pulse 2s infinite;
 }
-h1{
-    text-align: center;
+.info-box {
+  background: linear-gradient(145deg, #004d26, #001f0f);
+  border: 4px solid rgba(0, 0, 0, 0.9); 
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  padding: 30px;
+  max-width: 800px;
+  margin: 30px auto;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-h3{
-    text-align: center;
+
+.info-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.7);
+}
+
+.info-box h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.info-box p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e0e0e0;
 }
