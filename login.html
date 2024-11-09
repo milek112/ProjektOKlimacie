@@ -7,15 +7,22 @@
   <link rel="stylesheet" href="style_login.css" />
 </head>
 <body>
-
-  <div id="usernamePage">
-    <h1>Enter Your Username</h1>
-    <form id="usernameForm">
-      <input type="text" id="usernameInput" placeholder="Username"/>
-      <button type="submit" id="startBtn">Start Game</button>
+  <div class="wrapper">
+    <form action="#">
+      <h2>Witaj!</h2>
+      <div class="input-field">
+        <input type="text" required>
+        <label>Podaj nazwę użytkownika</label>
+      </div>
+      <div class="forget">
+        <label for="remember">
+          <input type="checkbox" id="remember">
+          <p>Zapamiętaj mnie</p>
+        </label>
+      </div>
+      <button type="submit">Zaczynamy!</button>
     </form>
   </div>
-
   <script src="skrypt_glowny.js"></script>
 </body>
 </html>

@@ -1,37 +1,27 @@
-// Select DOM elements
-const usernamePage = document.getElementById("usernamePage");
-const usernameInput = document.getElementById("usernameInput");
-const startBtn = document.getElementById("startBtn");
-const usernameForm = document.getElementById("usernameForm"); // Select the form
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("form"); // Pobiera formularz z HTML
+  const wrapper = document.querySelector(".wrapper"); // Pobiera wrapper, aby dodać animację
 
-// Store the username
-let username = "";
+  form.addEventListener("submit", (event) => {
+    event.preventDefault(); // Zapobiega przeładowaniu strony
 
-// Function to fade out the username page and redirect to the game page
-function startGame(event) {
-  event.preventDefault(); // Prevent form submission from reloading the page
+    // Sprawdza, czy pole tekstowe jest wypełnione
+    const usernameInput = form.querySelector("input[type='text']").value.trim();
+    if (usernameInput) {
+      // Dodaje efekt zanikania do wrappera
+      wrapper.classList.add("fadeOut");
 
-  // Store the username
-  username = usernameInput.value.trim();
+      // Po 800ms (czas trwania animacji) przenosi na główną stronę
+      setTimeout(() => {
+        window.location.href = "headpage.html";
+      }, 800); // Dopasowanie do długości animacji
+    }
+  });
+});
 
-  // Simple validation to ensure a username is entered
-  if (username === "") {
-    alert("Please enter a username");
-    return;
-  }
 
-  // Apply fadeOutZoom to the username page (optional, can add CSS for smooth animation)
-  usernamePage.classList.add("fadeOutZoom");
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector(".container");
+  container.classList.add("fadeIn"); // Dodaj efekt pojawiania się
+});
 
-  // Wait for the animation to complete before redirecting
-  setTimeout(() => {
-    // Redirect to the game page (headpage.html)
-    window.location.href = "headpage.html"; // This redirects to the game page
-
-    // Optional: Store the username in sessionStorage to pass it to the next page
-    sessionStorage.setItem("username", username);
-  }, 800); // Match the timing of the fade-out animation (0.8s)
-}
-
-// Event listener for form submission (instead of button click)
-usernameForm.addEventListener("submit", startGame);
