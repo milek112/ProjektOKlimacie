@@ -1,12 +1,14 @@
-*{
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: poppins;
+  font-family: "Open Sans", sans-serif;
 }
 body {
   transition: all 0.5s ease-in-out;
-  background-color: #000; /* Start with dark background */
+  background-color: #000; 
   color: #fff;
 }
 body.fade-out {
@@ -17,8 +19,11 @@ body.fade-out {
 .container{
   width: 100%;
   height:100vh;
-  background:linear-gradient(90deg,#59b559,#467832);
-}
+  background: url('tlo_hp.png'); /*na później, trzeba znaleźć dobre zdjęcie*/
+  background-size: cover;
+  background-attachment: fixed;
+  }
+  
 
 .parent{
   width:80%;
@@ -31,7 +36,8 @@ body.fade-out {
   background-position: center;
   background-size: cover;
   color: #022d62;
-  box-shadow: 5px 5px 20px black;
+  box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2), 0 6px 20px rgba(0, 128, 0, 0.19);
+  border-radius: 15px;
 }
 
 .parent nav{
@@ -42,13 +48,18 @@ body.fade-out {
   height: 15%;
   text-decoration: none;
 }
-
+.logox{
+  display: flex;
+}
+a{
+  text-decoration: none;
+}
 nav h1 {
   font-weight: 600;
   color: #093c24;
   font-size: 35px;
-  margin: 0; /* Remove any default margin */
-  line-height: 1; /* Ensure it aligns well with the logo */
+  margin: 0; 
+  line-height: 1; 
   text-decoration: none;
 }
 
@@ -183,19 +194,19 @@ opacity: 1;
   display: inline-block;
   align-items: center;
   text-decoration: none;
-  color: #093c24; /* Matches the color of your h1 */
+  color: #093c24;
 }
 
 .logo {
   margin-right: 10px;
   width: 50px;
   height: 50px;
-  margin-right: 10px; /* Adds space between logo and text */
+  margin-right: 10px;
 }
 
-/* Efekt pojawiania się */
+
 .fadeIn {
-  animation: fadeIn 1.3s ease forwards;
+  animation: fadeIn 1.8s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -205,4 +216,21 @@ opacity: 1;
   to {
     opacity: 1;
   }
+}
+
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px hsl(0, 0%, 0%), 0 0 20px #000000, 0 0 30px #000000;
+  }
+  50% {
+    box-shadow: 0 0 20px hsl(120, 2%, 10%), 0 0 30px #252725, 0 0 40px #1e201e;
+  }
+  100% {
+    box-shadow: 0 0 10px #000000, 0 0 20px #000000, 0 0 30px #000000;
+  }
+}
+
+.parent {
+  animation: pulse 2s infinite;
 }

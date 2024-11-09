@@ -129,6 +129,7 @@ button:hover {
   color: #fff;
   border-color: #fff;
   background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
 }
 
 .register {
@@ -140,7 +141,7 @@ button:hover {
 
 /* Animacja zanikania */
 .fadeOut {
-  animation: fadeOut 1.3s ease forwards;
+  animation: fadeOut 1.8s ease forwards;
 }
 
 @keyframes fadeOut {
