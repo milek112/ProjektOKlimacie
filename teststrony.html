@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackheros - Graj w Minigry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url(tlo.png);
+            font-family: Arial, sans-serif;
+            
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100vw;
+            height: 100vh;
+            padding: 20px;
+            
+        }
+        .left-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px;
+            max-width: 50%;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+        }
+        .buttons button {
+            font-size: 28px;
+            padding: 20px;
+            margin: 10px 0;
+            background-color: #68d391;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .buttons button:hover {
+            background-color: #48bb78;
+        }
+        .right-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            max-width: 50%;
+        }
+        .right-side img {
+            max-width: 90%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="left-side">
+        <div class="title">Hackheros - graj w minigry aby zdobywać nagrody</div>
+        <div class="buttons">
+            <button>Graj</button>
+            <button>Graj</button>
+        </div>
+    </div>
+    <div class="right-side">
+        <img src="roslinka.png" alt="Cute Plant">
+    </div>
+</div>
+
+</body>
+</html>
