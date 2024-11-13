@@ -145,7 +145,7 @@ ul li a:hover{
 /* ----------------------------------------------------------*/
 
 h2{
-  margin-top: 80px;
+  margin-top: 60px;
   font-weight: bold;
   text-align: center;
 }
@@ -182,4 +182,30 @@ h2{
 
 .item:hover{
   transform: scale(1.1);
+}
+
+button{
+  margin: 20px;
+  background-color: #177825;
+  box-shadow: rgba(0, 0, 0, 0.2);
+  color: rgb(0, 0, 0);
+  border-radius: 15px;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  font-weight: bold;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 4px solid black;
+}
+
+.button:hover {
+transform: scale(1.1);
+background-color: #177825;
 }
