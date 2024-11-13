@@ -155,14 +155,14 @@ h2{
   margin-top: 40px;
   justify-content: center;
   display: flex;
-  gap: 20px; /* Odstęp między blokami */
+  gap: 30px;
 }
 
 .item {
   box-shadow: 0 0 10px #000000;
-  background-color: #d5fdb2; /* Czerwony kolor bloku */
+  background-color: #d5fdb2;
   padding: 10px;
-  width: 150px; /* Szerokość bloku */
+  width: 150px;
   text-align: center;
   border: 2px solid black;
   border-radius: 15px;
@@ -178,4 +178,8 @@ h2{
 .item p {
   margin-top: 10px;
   font-size: 16px;
+}
+
+.item:hover{
+  transform: scale(1.1);
 }
