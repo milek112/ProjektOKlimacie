@@ -54,6 +54,7 @@ a{
   display: flex;
   padding: 10px;
   margin-right: 5px;
+  text-decoration: none;
 
 }
 nav h1 {
@@ -233,7 +234,37 @@ h2 {
   text-decoration: underline;
 }
 
+.button {
+  background: #fff;
+  color: #000000;
+  font-weight: 100;
+  border: solid 4px;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 15px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
+  text-decoration: none;
+  float: right;
+  
+
+}
+
+.button:hover {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  text-decoration: none;
+}
+button:hover {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  text-decoration: none;
+}
 button {
+  
   background: #fff;
   color: #000000;
   font-weight: 600;
@@ -244,10 +275,6 @@ button {
   font-size: 16px;
   border: 2px solid transparent;
   transition: 0.3s ease;
-}
+  text-decoration: none;
 
-button:hover {
-  color: #fff;
-  border-color: #fff;
-  background: rgba(255, 255, 255, 0.15);
 }
