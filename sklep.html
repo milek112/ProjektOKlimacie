@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sklep - EcoHeroes</title>
+  <link rel="stylesheet" href="sklep.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+<body class="shop-page">
+  <div class="container">
+    <div class="parent">
+      <nav>
+        <div class="logox">
+          <a href="headpage.html">
+            <img src="logo.png" alt="Logo" class="logo">
+            <h1>EcoHeroes</h1>
+          </a>
+        </div>
+        <ul>
+          <li><a href="gry.html">GRAJ</a></li>
+          <li><a href="maingame.html">ROŚLINKA</a></li>
+          <li><a href="wskazowki.html">WSKAZÓWKI</a></li>
+          <li><a href="sklep.html">SKLEP</a></li>
+          <li><a href="O_nas.html">O NAS</a></li>
+        </ul>
+      </nav>
+
+      <h2>Sklep</h2>
+
+<br><br>
+      <div class="shop swiper">
+        <div class="swiper-wrapper">
+
+          <div class="shop-item swiper-slide">
+            <h3>Nawóz</h3>
+            <p>Poprawia wzrost i zdrowie rośliny.</p>
+            <button class="buy-button">Kup teraz</button>
+          </div>
+
+          <div class="shop-item swiper-slide">
+            <h3>Woda Deszczowa</h3>
+            <p>Odświeża roślinę i poprawia jej kondycję.</p>
+            <button class="buy-button">Kup teraz</button>
+          </div>
+
+          <div class="shop-item swiper-slide">
+            <h3>Wybór Klimatu</h3>
+            <p>Zmienia środowisko rośliny: pustynia, tropiki, ogród botaniczny.</p>
+            <button class="buy-button">Kup teraz</button>
+          </div>
+
+          <div class="shop-item swiper-slide">
+            <h3>Doniczka Klasyczna</h3>
+            <p>Elegancka, klasyczna doniczka.</p>
+            <button class="buy-button">Kup teraz</button>
+          </div>
+
+          <div class="shop-item swiper-slide">
+            <h3>Mikro Zwierzęta</h3>
+            <p>Dodaj biedronki lub motyle, aby ożywić roślinę.</p>
+            <button class="buy-button">Kup teraz</button>
+          </div>
+
+          <div class="shop-item swiper-slide">
+            <h3>Nawadnianie Automatyczne</h3>
+            <p>Automatyczny system podlewania dla wygody.</p>
+            <button class="buy-button">Kup teraz</button>
+          </div>
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="sklep.js"></script>
+
+  <script>
+
+    const swiper = new Swiper('.swiper', {
+      slidesPerView: 3,
+      spaceBetween: 30,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        520: {
+          slidesPerView: 2,
+        },
+        950: {
+          slidesPerView: 3,
+        },
+      },
+    });
+  </script>
+</body>
+</html>
