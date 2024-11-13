@@ -1,15 +1,15 @@
 <?php
-// Database connection parameters
+
 $host = "localhost";
 $dbname = "uzytkownicy";
 $username = "root";
 $password = "";
 
 try {
-    // Establish database connection
+  
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "Połączenie z bazą danych zostało nawiązane.<br>"; // Debugging
+     // Debugging
 } catch (PDOException $e) {
     die("Błąd połączenia: " . $e->getMessage());
 }
@@ -28,6 +28,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nazwa'])) {
         // Execute the query
         if ($stmt->execute()) {
             echo "Użytkownik został pomyślnie dodany.<br>";
+
+            // Redirect to the same page to avoid form resubmission on refresh
+            header("Location: " . $_SERVER['PHP_SELF']);
+            exit();
         } else {
             echo "Wystąpił błąd podczas dodawania użytkownika.<br>";
             print_r($stmt->errorInfo()); // Show error
@@ -64,17 +68,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nazwa'])) {
             <input type="text" name="nazwa" required>
             <label>Podaj nazwę użytkownika</label>
           </div>
-          <div class="forget">
-            <label for="remember">
-              <input type="checkbox" id="remember">
-              <p>Zapamiętaj mnie</p>
-            </label>
+          <div class="forget">  
           </div>
-          <button type="submit">Zaczynamy!</button>
+          <button type="submit">Zaloguj!</button>
+          <a class="button" href="headpage.html" style="text-align: center;">Wróć!</a>
         </form>
       </div>
     </div>
   </div>
-  <script src="skrypt_glowny.js"></script>
+ 
 </body>
 </html> 
+
