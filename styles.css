@@ -19,7 +19,7 @@ body.fade-out {
 .container{
   width: 100%;
   height:100vh;
-  background-color: #063414;
+  background:linear-gradient(90deg,#b7e88c,#6eb652);
   background-size: cover;
   background-attachment: fixed;
   }
@@ -99,12 +99,15 @@ ul li a:hover{
 }
 
 .main_content .left{
+  margin-top: 30px;
   width: 45%;
   height: 100%;
   padding: 40px;
+  margin-left: 40px;
 }
 
 .left h3{
+  margin-top: 30px;
   font-weight: 600;
   font-size: 25px;
   text-transform: uppercase;
@@ -112,8 +115,8 @@ ul li a:hover{
 }
 
 .left h1{
-  font-size: 45px;
-  font-weight: 600;
+  font-size: 50px;
+  font-weight: bold;
   margin-bottom: 20px;
   line-height: 60px;
   text-transform: uppercase;
@@ -132,6 +135,7 @@ ul li a:hover{
 }
 
 .btn{
+  justify-content: center;
   padding: 15px 40px;
   border: none;
   outline: none;
