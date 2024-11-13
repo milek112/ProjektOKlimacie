@@ -1,14 +1,11 @@
 <?php
-// Parametry połączenia
-$host = "localhost";
-$dbname = "uzytkownicy";
-$username = "root";
-$password = "";
 
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Błąd połączenia: " . $e->getMessage());
+$host="localhost";
+$user="root";
+$pass="";
+$db="uzytkownicy";
+$conn=new mysqli($host,$user,$pass,$db);
+if($conn->connect_error){
+    echo "Failed to connect DB".$conn->connect_error;
 }
 ?>
