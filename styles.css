@@ -26,8 +26,8 @@ body.fade-out {
   
 
 .parent{
-  width:90%;
-  height: 95%;
+  width:80%;
+  height: 90%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -82,15 +82,15 @@ ul li a{
   text-decoration: none;
   padding: 5px 20px;
   text-transform: uppercase;
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: bold;
+  font-size: 20px;
   transition: 0.3s ease;
   font-weight: bold;
   color: #063414;
 }
 
 ul li a:hover{
-  color: red;
+  color: rgb(3, 134, 31);
 }
 
 .parent .main_content{

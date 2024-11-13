@@ -32,7 +32,7 @@ body {
   background-position: center;
   background-size: cover;
   color: #022d62;
-  box-shadow: 0 4px 8px rgba(0, 128, 0, 0.2), 0 6px 20px rgba(0, 128, 0, 0.19);
+  border: 4px solid black;
   border-radius: 15px;
 }
 
@@ -78,15 +78,15 @@ ul li a{
   text-decoration: none;
   padding: 5px 20px;
   text-transform: uppercase;
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: bold;
+  font-size: 20px;
   transition: 0.3s ease;
   font-weight: bold;
   color: #063414;
 }
 
 ul li a:hover{
-  color: red;
+  color: rgb(3, 134, 31);
 }
 
 .parent .main_content{
