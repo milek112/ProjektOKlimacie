@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zbieranie Śmieci</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-container">
+    <div class="menu">
+        <h1>Sortowanie Śmieci!</h1>
+        <p>Umieść śmieci w odpowiednich koszach. Masz na to 30 sekund!</p>
+        <br><br>
+      <button onclick="startGame()">Graj</button>
+      <button onclick="showScores()">Powrót</button>
+    </div>
+    <div class="pomoc">
+      <p>Zapamiętaj! <hr><br>Do kosza niebieskiego trafiają papiery, do zielonego szkło, a do żółtego plastik i metale!</p>
+
+    </div>
+    
+    <div class="game hidden">
+      <h2>Przesuń śmieci do odpowiednich koszy!</h2>
+      <div id="trash-container">
+        <!-- Śmieci będą się tu pojawiać losowo -->
+      </div>
+      <div id="bin-container">
+        <div class="bin" id="plastic-bin" ondrop="drop(event)" ondragover="allowDrop(event)">Plastik</div>
+        <div class="bin" id="paper-bin" ondrop="drop(event)" ondragover="allowDrop(event)">Papier</div>
+        <div class="bin" id="general-bin" ondrop="drop(event)" ondragover="allowDrop(event)">Ogólne</div>
+      </div>
+      <div id="timer">Czas: 30s</div>
+      <button onclick="resetGame()">Wróć do menu</button>
+    </div>
+    
+    <div class="scores hidden">
+      <h2>Wyniki</h2>
+      <ul id="score-list"></ul>
+      <button onclick="backToMenu()">Wróć do menu</button>
+
+    </div>
+
+    <!-- Okno modalne dla zakończenia gry -->
+        <div class="modal-content">
+          <h3 id="modalMessage"></h3>
+        </div>
+      </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+  <style>
+
+body {
+  background-image: url(tlo.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: black;
+
+}
+
+.game-container {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.menu, .game, .scores {
+  width: 100%;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+#trash-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.trash {
+
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  cursor: grab;
+}
+
+#bin-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.bin {
+  width: 100px;
+  height: 100px;
+  border: 2px dashed #333;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #333;
+}
+
+#timer {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+/* Modal style */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.modal h3 {
+  margin-bottom: 20px;
+}
+
+.modal button {
+  margin: 5px;
+}
+
+
+  </style>
+  <script>
+
+    /*
+let timer;
+let timeLeft = 30;
+let scoreList = [];
+
+function startGame() {
+  document.querySelector('.menu').classList.add('hidden');
+  document.querySelector('.game').classList.remove('hidden');
+  timeLeft = 30;
+  document.getElementById('timer').innerText = `Czas: ${timeLeft}s`;
+  resetTrash();
+  startTimer();
+}
+
+function startTimer() {
+  timer = setInterval(() => {
+    timeLeft--;
+    document.getElementById('timer').innerText = `Czas: ${timeLeft}s`;
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      endGame('Czas się skończył! Zagraj ponownie?');
+    }
+  }, 1000);
+}
+
+function resetGame() {
+  clearInterval(timer);
+  document.querySelector('.game').classList.add('hidden');
+  document.querySelector('.menu').classList.remove('hidden');
+  closeModal();
+}
+*/
+function showScores() {
+      window.location.href = 'headpage.html';
+}
+/*
+function backToMenu() {
+  document.querySelector('.scores').classList.add('hidden');
+  document.querySelector('.menu').classList.remove('hidden');
+}
+
+function updateScoreList() {
+  const scoreListElement = document.getElementById('score-list');
+  scoreListElement.innerHTML = '';
+  scoreList.forEach((score, index) => {
+    const li = document.createElement('li');
+    li.textContent = `${index + 1}. ${score}s`;
+    scoreListElement.appendChild(li);
+  });
+}
+
+function resetTrash() {
+  const trashContainer = document.getElementById('trash-container');
+  trashContainer.innerHTML = '';
+
+  const trashItems = [
+    { id: 'plastic', img: 'butelka.png', type: 'plastic-bin' },
+    { id: 'paper', img: 'papierki.png', type: 'paper-bin' },
+    { id: 'general', img: 'smieci.png', type: 'general-bin' },
+  ];
+
+  const randomItem = trashItems[Math.floor(Math.random() * trashItems.length)];
+  const trash = document.createElement('img');
+  trash.src = randomItem.img;
+  trash.id = randomItem.id;
+  trash.classList.add('trash');
+  trash.draggable = true;
+  trash.ondragstart = drag;
+  trash.dataset.binType = randomItem.type;
+  trash.style.left = `${Math.random() * 90}%`;
+  trash.style.top = `${Math.random() * 70}%`;
+  trashContainer.appendChild(trash);
+}
+
+function drag(event) {
+  event.dataTransfer.setData('text', event.target.id);
+}
+
+function allowDrop(event) {
+  event.preventDefault();
+}
+
+function drop(event) {
+  event.preventDefault();
+  const trashId = event.dataTransfer.getData('text');
+  const trashElement = document.getElementById(trashId);
+  const targetBin = event.target.id;
+
+  if (trashElement.dataset.binType === targetBin) {
+    trashElement.remove();
+    resetTrash();
+  } else {
+    endGame('Niestety, wrzuciłeś śmieć do złego kosza. Spróbuj ponownie.');
+  }
+}
+
+function endGame(message) {
+  clearInterval(timer);
+  document.getElementById('modalMessage').innerText = message;
+  document.getElementById('gameOverModal').classList.remove('hidden');
+}
+
+function playAgain() {
+  document.getElementById('gameOverModal').classList.add('hidden');
+  startGame();
+}
+
+function closeModal() {
+  document.getElementById('gameOverModal').classList.add('hidden');
+}
+*/
+function startGame() {
+      window.location.href = 'game.html';
+    }
+    
+
+    </script>
+</body>
+</html>

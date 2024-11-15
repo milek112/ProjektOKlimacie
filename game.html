@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sortowanie Śmieci</title>
+  <style>
+body {
+  background-image: url(tlo.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+}
+
+.game-container {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.menu, .game, .scores {
+  width: 100%;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+#trash-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.trash {
+
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  cursor: grab;
+}
+
+#bin-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.bin {
+  width: 100px;
+  height: 100px;
+  border: 2px dashed #333;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #333;
+}
+
+#timer {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+/* Modal style */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.modal h3 {
+  margin-bottom: 20px;
+}
+
+.modal button {
+  margin: 5px;
+}
+    .bin { 
+        
+        width: 140px; 
+        height: 140px; 
+        border: 2px solid black; 
+        display: inline-block; 
+        margin: 10px; 
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <div id="timer">Pozostały czas: <span id="time-left">30</span>s</div>
+    <div id="trash-container"></div>
+    <div id="bins">
+      <img src="smietnik1.png" class="bin" id="bin1" data-type="1">
+      <img src="smietnik4.png" class="bin" id="bin2" data-type="2">
+      <img src="smietnik3.png" class="bin" id="bin2" data-type="2">
+    </div>
+  </div>
+
+  <script>
+    let timeLeft = 30;
+    let gameOver = false;
+
+    // Odliczanie czasu
+    function startTimer() {
+      const timerInterval = setInterval(() => {
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          endGame();
+        } else {
+          timeLeft--;
+          document.getElementById('time-left').innerText = timeLeft;
+        }
+      }, 1000);
+    }
+
+    // Generowanie śmieci co 3 sekundy
+    function generateTrash() {
+      if (gameOver) return;
+      
+      const trashContainer = document.getElementById('trash-container');
+      const trashType = Math.floor(Math.random() * 4) + 1; // Losowanie typu śmiecia
+      const trash = document.createElement('img');
+      trash.src = `smiec${trashType}.jpg`; // obraz śmiecia
+      trash.className = 'trash';
+      trash.dataset.type = trashType;
+      trash.draggable = true;
+
+      // Obsługa przeciągania
+      trash.addEventListener('dragstart', (event) => {
+        event.dataTransfer.setData('type', trashType);
+        event.target.classList.add('dragging');
+      });
+      trash.addEventListener('dragend', (event) => {
+        event.target.classList.remove('dragging');
+      });
+
+      trashContainer.appendChild(trash);
+    }
+
+    // Funkcja zakończenia gry
+    function endGame() {
+      gameOver = true;
+      alert("Koniec Gry!");
+      window.location.href = 'smiecigra.html';
+    }
+
+    // Uruchomienie generatora śmieci
+    function startTrashGenerator() {
+      generateTrash();
+      setInterval(generateTrash, 3000);
+    }
+
+    // Dodanie obsługi przeciągania do koszy
+    document.querySelectorAll('.bin').forEach(bin => {
+      bin.addEventListener('dragover', (event) => {
+        event.preventDefault();
+      });
+
+      bin.addEventListener('drop', (event) => {
+        const draggedType = event.dataTransfer.getData('type');
+        if (draggedType == bin.dataset.type) {
+          // Usunięcie poprawnie umieszczonego śmiecia
+          document.querySelector(`img[data-type="${draggedType}"].dragging`).remove();
+        } else {
+          endGame(); // Zły kosz – koniec gry
+        }
+      });
+    });
+
+    // Start gry
+    window.onload = () => {
+      startTimer();
+      startTrashGenerator();
+    }
+  </script>
+</body>
+</html>

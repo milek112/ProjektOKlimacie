@@ -23,7 +23,13 @@ background:linear-gradient(90deg,#b7e88c,#6eb652);
 background-size: cover;
 background-attachment: fixed;
 }
-
+.h22{
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+}
+.pomoc{
+  margin-top: 120px;
+}
 
 .parent{
   width:90%;
@@ -209,9 +215,10 @@ height: 85%;
 padding-left: 100px;
 }
 .fot img{
-width: 600px;
+width: 750px;
 height: auto;
 padding: 10%;
+display: block;
 }
 
 .logo-container {
