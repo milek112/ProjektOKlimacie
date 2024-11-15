@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje AI</title>
+</head>
+<body>
+    <h1>Zapytaj AI</h1>
+    <form id="questionForm">
+        <label for="question">Twoje pytanie:</label>
+        <input type="text" id="question" name="question" required>
+        <button type="submit">Zadaj pytanie</button>
+    </form>
+    <p id="answer"></p>
+
+    <script>
+        document.getElementById("questionForm").onsubmit = async (event) => {
+            event.preventDefault();
+            const question = document.getElementById("question").value;
+            const response = await fetch("/ask", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ question })
+            });
+            const data = await response.json();
+            document.getElementById("answer").innerText = data.answer;
+        };
+    </script>
+</body>
+</html>
