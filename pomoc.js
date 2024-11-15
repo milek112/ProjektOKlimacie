@@ -1,14 +1,14 @@
 function toggleAnswer(id) {
-  // Znajdź wszystkie odpowiedzi
+ 
   var allAnswers = document.querySelectorAll('.answer');
   
-  // Zamknij wszystkie odpowiedzi
+ 
   allAnswers.forEach(function(answer) {
-      // Usuwamy klasę "open", co spowoduje ich zamknięcie
+     
       answer.classList.remove("open");
   });
 
-  // Teraz otwórz tylko tę, na którą kliknęliśmy
+  
   var selectedAnswer = document.getElementById('answer-' + id);
   selectedAnswer.classList.add("open");
 }

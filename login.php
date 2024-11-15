@@ -9,32 +9,32 @@ try {
   
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-     // Debugging
+   
 } catch (PDOException $e) {
     die("Błąd połączenia: " . $e->getMessage());
 }
 
-// Check if form was submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nazwa'])) {
-    // Get the username from the form
+    
     $nazwa = $_POST['nazwa'];
 
     try {
-        // Prepare SQL query to insert into 'uzyt' table
+       
         $sql = "INSERT INTO uzyt (uzytkownik) VALUES (:uzyt)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':uzyt', $nazwa, PDO::PARAM_STR);
 
-        // Execute the query
+      
         if ($stmt->execute()) {
             echo "Użytkownik został pomyślnie dodany.<br>";
 
-            // Redirect to the same page to avoid form resubmission on refresh
+            
             header("Location: " . $_SERVER['PHP_SELF']);
             exit();
         } else {
             echo "Wystąpił błąd podczas dodawania użytkownika.<br>";
-            print_r($stmt->errorInfo()); // Show error
+            print_r($stmt->errorInfo()); 
         }
     } catch (PDOException $e) {
         echo "Błąd połączenia: " . $e->getMessage();

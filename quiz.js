@@ -20,25 +20,25 @@ function startQuiz() {
     punkty = 0;
     nastepny.innerHTML = "Nastepny";
     nastepny.style.display = "none";
-    wroc.style.display = "none"; // Ukrycie przycisku "Wróć" na nowy start
+    wroc.style.display = "none"; 
     pokazPytanie();
 }
 
 function pokazPytanie() {
-    odpowiedziPrzyciski.innerHTML = ""; // Czyszczenie poprzednich przycisków
+    odpowiedziPrzyciski.innerHTML = ""; 
 
     let numeryPytania = pytania[numerPytania];
     let kolejnePytania = numerPytania + 1;
     pytanie.innerHTML = kolejnePytania + ". " + numeryPytania.pytanie;
 
-    // Tworzenie przycisków odpowiedzi
+   
     numeryPytania.odpowiedzi.forEach(odpowiedzi => {
         const przycisk = document.createElement("button");
         przycisk.innerHTML = odpowiedzi.text;
         przycisk.classList.add("btn");
         odpowiedziPrzyciski.appendChild(przycisk);
 
-        // Dodanie funkcji kliknięcia
+        
         przycisk.addEventListener("click", () => {
             if (odpowiedzi.correct) {
                 przycisk.classList.add("correct");
@@ -46,21 +46,21 @@ function pokazPytanie() {
             } else {
                 przycisk.classList.add("incorrect");
             }
-            // Wyłączenie wszystkich przycisków po zaznaczeniu odpowiedzi
+           
             Array.from(odpowiedziPrzyciski.children).forEach(button => {
                 button.disabled = true;
-                // Oznaczenie poprawnej odpowiedzi na zielono
+                
                 if (numeryPytania.odpowiedzi.find(o => o.text === button.innerHTML && o.correct)) {
                     button.classList.add("correct");
                 }
             });
-            // Przechodzimy do następnego pytania lub kończymy quiz
+            
             nastepny.style.display = "block";
             
-            // Usuwamy poprzednie zdarzenie `click` z przycisku "Następne"
+            
             nastepny.removeEventListener("click", handleNextQuestion);
             
-            // Dodajemy nowe zdarzenie `click` do przycisku "Następne"
+            
             nastepny.addEventListener("click", handleNextQuestion);
         });
     });
@@ -78,12 +78,12 @@ function handleNextQuestion() {
 
 function pokazWynik() {
     pytanie.innerHTML = "Twój wynik: " + punkty + " / " + pytania.length;
-    odpowiedziPrzyciski.innerHTML = ""; // Usunięcie przycisków odpowiedzi
+    odpowiedziPrzyciski.innerHTML = ""; 
     
-    // Ukrycie przycisku "Następne" po zakończeniu quizu
+  
     nastepny.style.display = "none";
     
-    // Wyświetl przycisk "Wróć" po zakończeniu quizu
+  
     wroc.style.display = "block";
 }
 
