@@ -140,6 +140,7 @@ font-weight: 400;
 }
 
 .btn{
+  margin-top: 40px;
   justify-content: center;
   padding: 15px 40px;
   border: none;
