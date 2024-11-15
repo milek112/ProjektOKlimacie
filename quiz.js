@@ -12,7 +12,7 @@ let numerPytania = 0;
 let punkty = 0;
 
 function powroc() {
-    window.location.href = "index.html";
+    window.location.href = "./index.html";
 }
 
 function startQuiz() {
